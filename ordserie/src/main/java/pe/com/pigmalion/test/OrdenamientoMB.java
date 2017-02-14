@@ -30,7 +30,7 @@ public class OrdenamientoMB implements Serializable{
     private String mensaje = "";    
     private String valor = "";    
     private List<String> listado = new ArrayList<String>();
-    private List<String> resultado = new ArrayList<String>();    
+    private List<String> resultado = new ArrayList<String>();
     
     public void asignarValor(ActionEvent e){
         if(validar(valor)){
@@ -42,14 +42,18 @@ public class OrdenamientoMB implements Serializable{
     public void ordenarAsc(ActionEvent e){
         Set<String> linkHashSet = new LinkedHashSet<String>();
         List<Integer> listaOrdenado = new ArrayList<Integer>();
+        List<String> res = new ArrayList<String>();
         linkHashSet.addAll(listado);
         for (String string : linkHashSet) {
             listaOrdenado.add(Integer.valueOf(string));
         }
         Collections.sort(listaOrdenado);
         for (Integer elemento : listaOrdenado) {
-            resultado.add(elemento.toString());
+            res.add(elemento.toString());
         }
+        
+        resultado.clear();
+        resultado.addAll(res);
     }
     
     public boolean validar(String dato){

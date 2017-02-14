@@ -7,8 +7,7 @@
     <h:head>
         <title>Ordenamiento de serie</title>
     </h:head>
-    <h:body>
-        <h2>Ordenamiento de serie</h2>
+    <h:body>        
         
         <br/>
         <p:messages id="idmsgs" for="idmsgs"/>
@@ -25,19 +24,21 @@
             
             
         </h:form>
-        
+        <p:spacer height="10"/>
         <h:panelGrid id="idAdicional">
+            <p:outputLabel value="Constancia de valores ingresados:"/>
             <ui:repeat var="item" value="#{ordenamientoMB.listado}">  
-                Valor: #{item}<br/>
+                #{item}
             </ui:repeat>
         </h:panelGrid>
-        
+        <br/>
+        <br/>
         <h:panelGrid id="idResultado">
+            <p:outputLabel value="Resultado Ordenado (Asc):"/>
             <ui:repeat var="item1" value="#{ordenamientoMB.resultado}">  
                 #{item1}
             </ui:repeat>
-        </h:panelGrid>
-        
+        </h:panelGrid>        
         
     </h:body>
 </html>
