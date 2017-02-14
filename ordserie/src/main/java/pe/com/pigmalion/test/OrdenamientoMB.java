@@ -32,6 +32,10 @@ public class OrdenamientoMB implements Serializable{
     private List<String> listado = new ArrayList<String>();
     private List<String> resultado = new ArrayList<String>();
     
+    /**
+     * Metodo que se agrega el valor a la lista
+     * @param e 
+     */
     public void asignarValor(ActionEvent e){
         if(validar(valor)){
             listado.add(valor);
@@ -39,7 +43,14 @@ public class OrdenamientoMB implements Serializable{
         valor = "";
     }
     
+    /**
+     * Método que permite realizar el oredenamiento ascendente
+     * @param e 
+     */
     public void ordenarAsc(ActionEvent e){
+        /**
+         * Listados auxiliares
+         */
         Set<String> linkHashSet = new LinkedHashSet<String>();
         List<Integer> listaOrdenado = new ArrayList<Integer>();
         List<String> res = new ArrayList<String>();
@@ -56,6 +67,11 @@ public class OrdenamientoMB implements Serializable{
         resultado.addAll(res);
     }
     
+    /**
+     * Método que permite realizar la validación del valor ingresado, se emite mensaje de validación
+     * @param dato
+     * @return 
+     */
     public boolean validar(String dato){
         if(StringUtils.isBlank(dato)){            
             FacesContext.getCurrentInstance().addMessage("idmsgs",new FacesMessage(FacesMessage.SEVERITY_ERROR,"El valor no debe ser vacío","El valor no debe ser vacío"));
@@ -81,6 +97,7 @@ public class OrdenamientoMB implements Serializable{
         return true;
     }
     
+    // Metodos GET y SET
     public String getValor() {
         return valor;
     }
