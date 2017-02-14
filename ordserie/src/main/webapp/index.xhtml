@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Ordenamiento de serie</title>
+    </h:head>
+    <h:body>
+        <h2>Ordenamiento de serie</h2>
+        
+        <br/>
+        <p:messages id="idmsgs" for="idmsgs"/>
+        <h:form id="idForm">
+            <h:panelGrid id="idDatos" columns="2">
+                <h:outputLabel value="Ingresando valor:"/>
+                <h:inputText id="idValor" value="#{ordenamientoMB.valor}"/>
+                
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <p:commandButton value="Agregar" actionListener="#{ordenamientoMB.asignarValor}" update=":idForm :idAdicional idmsgs"/>
+                <p:commandButton value="Ordenar" actionListener="#{ordenamientoMB.ordenarAsc}" update=":idResultado"/>
+            </h:panelGrid>
+            
+            
+        </h:form>
+        
+        <h:panelGrid id="idAdicional">
+            <ui:repeat var="item" value="#{ordenamientoMB.listado}">  
+                Valor: #{item}<br/>
+            </ui:repeat>
+        </h:panelGrid>
+        
+        <h:panelGrid id="idResultado">
+            <ui:repeat var="item1" value="#{ordenamientoMB.resultado}">  
+                #{item1}
+            </ui:repeat>
+        </h:panelGrid>
+        
+        
+    </h:body>
+</html>
+
